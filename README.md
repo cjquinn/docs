@@ -5,14 +5,14 @@ CakePHP Documentation
 [![Build Status](https://img.shields.io/travis/cakephp/docs/master.svg?style=flat-square)](https://travis-ci.org/cakephp/docs)
 
 This is the official documentation for the CakePHP project. It is available
-online in HTML, PDF and EPUB formats at http://book.cakephp.org.
+online in HTML, PDF and EPUB formats at https://book.cakephp.org.
 
 This `master` branch is the documentation for **CakePHP 2.x**.
 For **CakePHP 3.x** please see the `3.0` branch.
 
 Contributing to the documentation is pretty simple. Please read the
 documentation on contributing to the documentation over on [the
-cookbook](http://book.cakephp.org/2.0/en/contributing/documentation.html) for
+cookbook](https://book.cakephp.org/2.0/en/contributing/documentation.html) for
 help. You can read all of the documentation within as its just in plain text
 files, marked up with ReST text formatting.
 
@@ -24,7 +24,7 @@ Build the Documentation with Docker
 
 Docker will let you create a container with all packages needed to build the
 docs. You need to have docker installed, see the [official docs of
-docker](http://docs.docker.com/mac/started/) for more information.
+docker](https://docs.docker.com/mac/started/) for more information.
 
 There is a Dockerfile included at the root of this repository. You can build
 an image using:
@@ -89,17 +89,16 @@ To build the documentation you'll need the following for linux/OS X:
 
 * Make
 * Python
-* Sphinx 1.2.* (currently the make commands will not work with 1.3.* versions
-  and up)
-* PhpDomain for sphinx
+* Sphinx 1.4.5
+* PhpDomain for sphinx 0.2.0
 
 You can install sphinx using:
 
-    pip install sphinx==1.2.3
+    pip install sphinx==1.4.5
 
 You can install the phpdomain using:
 
-    pip install sphinxcontrib-phpdomain
+    pip install sphinxcontrib-phpdomain==0.2.0
 
 *To run the pip command, python-pip package must be previously installed.*
 

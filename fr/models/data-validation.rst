@@ -491,8 +491,8 @@ nouveaux champs à définir. Le premier est l'utilisation de la méthode ``add``
         'required' => 'create'
     ));
 
-Cela va ajouter une règle simple au champ `password` dans le model. Vous pouvez
-chainer plusieurs appels à ajouter pour créer autant de règles que vous
+Cela va ajouter une règle simple au champ ``password`` dans le model. Vous
+pouvez chainer plusieurs appels à ajouter pour créer autant de règles que vous
 souhaitez::
 
     // Dans une classe de model
@@ -645,10 +645,8 @@ complète de toutes les règles, illustrées par des exemples d'utilisation.
             )
         );
 
-    La longueur des données est "le nombre d'octets dans la représentation
-    des données sous forme de chaîne". Faites attention, car elle peut être
-    plus grande que le nombre de caractères quand vous manipulez des caractères
-    non-ASCII.
+    Les données sont vérifiées avec le nombre de caractères, et pas avec le
+    nombre de bytes.
 
 .. php:staticmethod:: blank(mixed $check)
 
@@ -707,7 +705,7 @@ complète de toutes les règles, illustrées par des exemples d'utilisation.
     Le paramètre 'deep' devrait être défini comme une valeur booléenne. S'il
     est défini à true, la validation vérifiera l'algorithme Luhn de la carte
     de crédit
-    (`http://en.wikipedia.org/wiki/Luhn\_algorithm <http://en.wikipedia.org/wiki/Luhn_algorithm>`_).
+    (`https://en.wikipedia.org/wiki/Luhn\_algorithm <https://en.wikipedia.org/wiki/Luhn_algorithm>`_).
     Par défaut, elle est à false.
 
     Le paramètre 'regex' vous permet de passer votre propre expression
@@ -978,13 +976,11 @@ complète de toutes les règles, illustrées par des exemples d'utilisation.
 
     L'algorithme Luhn: Une formule de vérification de somme pour valider
     un ensemble de nombres d'identification. Regardez
-    http://en.wikipedia.org/wiki/Luhn_algorithm pour plus d'informations.
+    https://en.wikipedia.org/wiki/Luhn_algorithm pour plus d'informations.
 
 .. php:staticmethod:: maxLength(string $check, integer $max)
 
-    Cette règle s'assure que la donnée respecte la longueur maximale requise.
-
-    ::
+    Cette règle s'assure que la donnée respecte la longueur maximale requise::
 
         public $validate = array(
             'login' => array(
@@ -993,9 +989,8 @@ complète de toutes les règles, illustrées par des exemples d'utilisation.
             )
         );
 
-    La longueur ici est "le nombre de bytes dans la représentation en chaîne
-    de la donnée". Faites attention car elle pourrait être plus grande
-    que le nombre de caractères en manipulant des caractères non-ASCII.
+    Ceci va s'assurer que le champ 'login' est inférieur ou égal à 15
+    caractères, et pas à 15 bytes.
 
 .. php:staticmethod:: mimeType(mixed $check, array|string $mimeTypes)
 
@@ -1023,9 +1018,8 @@ complète de toutes les règles, illustrées par des exemples d'utilisation.
 
 .. php:staticmethod:: minLength(string $check, integer $min)
 
-    Cette règle s'assure que les données ont une obligation de longueur minimum.
-
-    ::
+    Cette règle s'assure que les données ont une obligation de longueur
+    minimum::
 
         public $validate = array(
             'login' => array(
@@ -1034,9 +1028,7 @@ complète de toutes les règles, illustrées par des exemples d'utilisation.
             )
         );
 
-    La longueur ici est "le nombre de bytes dans la représentation des données
-    sous forme de chaîne". Faites attention car elle pourrait être plus grande
-    que le nombre de caractères en manipulant des caractères non-ASCII.
+    La longueur ici est le nombre de caractères, et pas le nombre de bytes.
 
 .. php:staticmethod:: money(string $check, string $symbolPosition = 'left')
 

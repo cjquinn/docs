@@ -7,8 +7,8 @@
 this Doc"按键将会引导你进入该页面的 GitHub 在线编辑器。
 
 CakePHP文档是
-`持续集成 <http://en.wikipedia.org/wiki/Continuous_integration>`_ 的，所以你可以
-在任何时候在Jenkins服务器上查看 `各种构建 <http://ci.cakephp.org>`_ 的状态。
+`持续集成 <https://en.wikipedia.org/wiki/Continuous_integration>`_ 的，所以你可以
+在任何时候在Jenkins服务器上查看 `各种构建 <https://ci.cakephp.org>`_ 的状态。
 
 翻译
 ====
@@ -76,7 +76,7 @@ CakePHP文档是
 
 - 用要翻译的语言来进行浏览、编辑 - 否则你将无法看到哪些已经翻译了。
 - 如果你选择的语言在本书中已经存在，请自行加入。
-- 请使用 `Informal Form <http://en.wikipedia.org/wiki/Register_(linguistics)>`_ 。
+- 请使用 `Informal Form <https://en.wikipedia.org/wiki/Register_(linguistics)>`_ 。
 - 请将内容和标题一起翻译。
 - 在提交一个更正之前，请先和英文版本的内容进行比较(如果你改正了一些东西，却没有
   整合“上游”(*upstream*)的改动，你提交的东西将不会被接受)。
@@ -86,7 +86,7 @@ CakePHP文档是
 - 请不要提交不完整的翻译。
 - 请不要编辑正在改动的部分。
 - 对于标以重音符号的字符，请不要使用
-  `html 字符实体 <http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references>`_
+  `html 字符实体 <https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references>`_
   (*html entities*) 来表示，本书使用UTF-8。
 - 请不要显著改变标记(HTML)或增加新的内容。
 - 如果原始的内容遗漏了某些信息，请先提交(对原始内容的)更正。
@@ -95,7 +95,7 @@ CakePHP文档是
 ============
 
 这份新的 CakePHP 文档是以
-`ReST formatted text <http://en.wikipedia.org/wiki/ReStructuredText>`_ 格式写的。
+`ReST formatted text <https://en.wikipedia.org/wiki/ReStructuredText>`_ 格式写的。
 ReST (Re Structured Text)是与 markdown 或者 textile 类似的纯文本标记语法。为保持
 一致性，建议在添加到CakePHP文档时，请遵循(下面)这些准则，来你格式化和组织你的文字。
 
@@ -237,15 +237,13 @@ ReST (Re Structured Text)是与 markdown 或者 textile 类似的纯文本标记
     之后的标题。你也可以使用 ``:ref:`链接文字 <标签名称>``` 的方式来提供自定义的
     链接文字。
 
-Prevent Sphinx to Output Warnings
+防止 Sphinx 输出警告
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sphinx will output warnings if a file is not referenced in a toc-tree. It's
-a great way to ensure that all files have a link directed to them, but
-sometimes, you don't need to insert a link for a file, eg. for our
-`epub-contents` and `pdf-contents` files. In those cases, you can add
-``:orphan:`` at the top of the file, to suppress warnings that the file is not
-in the toc-tree.
+如果一个文件没有在某个 toc-tree 中引用，Sphinx 就会输出警告。这可以很好地保证所有
+文件都有一个指向到它们的链接，但是，有时候，你并不需要插入对一个文件的链接，
+例如，对我们的 `epub-contents` 和 `pdf-contents` 文件。在这样的情况下，可以在文
+件开头增加 ``:orphan:``，就可以防止文件不在某个 toc-tree 中的警告。
 
 描述类和它们的内容
 ------------------
@@ -322,16 +320,16 @@ CakePHP 文档使用
 
    描述一个类的属性(*property/attribute*)。
 
+防止 Sphinx 输出警告
 Prevent Sphinx to Output Warnings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sphinx will output warnings if a function is referenced in multiple files. It's
-a great way to ensure that you did not add a function two times, but
-sometimes, you actually want to write a function in two or more files, eg.
-`debug object` is referenced in `/development/debugging` and in
-`/core-libraries/global-constants-and-functions`. In this case, you can add
-``:noindex:`` under the function debug to suppress warnings. Keep only
-one reference **without** ``:no-index:`` to still have the function referenced::
+如果一个函数在多个文件中引用，Sphinx 就会输出警告。这可以很好地保证不会多次加入
+一个函数，但是，有时候，你实际上就是要在两个或者多个文件中写同一个函数，例如
+`debug object` 在 `/development/debugging`，也在
+`/core-libraries/global-constants-and-functions` 中引用。在这种情况下，可以在
+debug 函数之下增加 ``:noindex:`` 来防止警告。保证有一个引用 **没有**
+``:no-index:``，这样就还可以使该函数被引用::
 
     .. php:function:: debug(mixed $var, boolean $showHtml = null, $showFrom = true)
         :noindex:

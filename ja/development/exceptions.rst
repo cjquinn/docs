@@ -59,9 +59,9 @@ HTTP 方式の例外がいくつか存在します。
 
     400 Bad Request エラーを発生させるために使います。
 
-.. php:exception::UnauthorizedException
+.. php:exception:: UnauthorizedException
 
-    401 Not found エラーを発生させるために使います。
+    401 Unauthorized エラーを発生させるために使います。
 
 .. php:exception:: ForbiddenException
 
@@ -230,7 +230,7 @@ ExceptionRenderer クラスは ``CakeErrorController`` を活用して、あな�
 独自のアプリケーション例外を作成する
 ====================================
 
-組み込みの `SPL 例外 <http://php.net/manual/ja/spl.exceptions.php>`_ 、 ``Exception``
+組み込みの `SPL 例外 <https://secure.php.net/manual/ja/spl.exceptions.php>`_ 、 ``Exception``
 そのもの、 :php:exc:`CakeException` のいずれかを使って独自のアプリケーション例外を作ることが
 できます。Exception や SPL 例外を継承したアプリケーション例外は本番モードでは 500 エラーとして
 扱われます。 :php:exc:`CakeException` は特別で、 :php:exc:`CakeException` のオブジェクトは
@@ -396,7 +396,7 @@ Lib のパスの中にある、 ``Error`` ディレクトリ内に置いてく�
 
     class AppExceptionRenderer extends ExceptionRenderer {
         protected function _getController($exception) {
-            App::uses('SuperCustomError', 'Controller');
+            App::uses('SuperCustomErrorController', 'Controller');
             return new SuperCustomErrorController();
         }
     }

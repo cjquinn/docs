@@ -9,10 +9,12 @@ run on a variety of web servers such as lighttpd or Microsoft IIS.
 Requirements
 ============
 
--  HTTP Server. For example: Apache. mod\_rewrite is preferred, but by no means
-   required.
--  PHP 5.3.0 or greater (CakePHP version 2.6 and below support PHP 5.2.8 and
-   above).
+- HTTP Server. For example: Apache. mod\_rewrite is preferred, but by no means
+  required.
+- PHP 5.3.0 or greater (CakePHP version 2.6 and below support PHP 5.2.8 and
+  above). CakePHP version 2.8.0 and above support PHP 7. To use PHP above 7.1
+  you may need to install mcrypt via PECL. See
+  :doc:`/core-utility-libraries/security` for more information.
 
 Technically a database engine isn't required, but we imagine that most
 applications will utilize one. CakePHP supports a variety of database storage
@@ -44,10 +46,10 @@ an archived copy (zip/tar.gz/tar.bz2) from the main website, or check out the
 code from the git repository.
 
 To download the latest major release of CakePHP, visit the main website
-`http://cakephp.org <http://cakephp.org>`_ and follow the "Download" link.
+`https://cakephp.org <https://cakephp.org>`_ and follow the "Download" link.
 
 All current releases of CakePHP are hosted on
-`GitHub <http://github.com/cakephp/cakephp>`_. GitHub houses both CakePHP itself
+`GitHub <https://github.com/cakephp/cakephp>`_. GitHub houses both CakePHP itself
 as well as many other plugins for CakePHP. The CakePHP releases are available at
 `GitHub tags <https://github.com/cakephp/cakephp/tags>`_.
 

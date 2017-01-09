@@ -159,14 +159,14 @@ Automatically decoding request data
         $this->RequestHandler->addInputType('csv', array($parser));
 
     The above example requires PHP 5.3, however you can use any
-    `callable <http://php.net/callback>`_ for the handling function. You can
+    `callable <https://secure.php.net/callback>`_ for the handling function. You can
     also pass additional arguments to the callback, this is useful for callbacks
     like ``json_decode``::
 
         $this->RequestHandler->addInputType('json', array('json_decode', true));
 
     The above will make ``$this->request->data`` an array of the JSON input data,
-    without the additional ``true`` you'd get a set of ``StdClass`` objects.
+    without the additional ``true`` you'd get a set of ``stdClass`` objects.
 
 Responding To Requests
 ======================

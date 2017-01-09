@@ -43,6 +43,28 @@ CakePHP 开发人员将使用下面的编码规范。
         }
     }
 
+如果你用到多行的函数调用，请使用下面的原则：
+In cases where you're using a multi-line function call use the following guidelines:
+
+*  多行函数调用的开始括号必须是位于该行结尾。
+*  多行函数调用中，每行只允许有一个参数。
+*  多行函数调用的结束括号必须位于单独的一行。
+
+例如，不要使用下面的写法::
+
+    $matches = array_intersect_key($this->_listeners,
+                    array_flip(preg_grep($matchPattern,
+                        array_keys($this->_listeners), 0)));
+
+而是要这样写::
+
+    $matches = array_intersect_key(
+        $this->_listeners,
+        array_flip(
+            preg_grep($matchPattern, array_keys($this->_listeners), 0)
+        )
+    );
+
 行的长度
 ===========
 
@@ -118,7 +140,7 @@ CakePHP 开发人员将使用下面的编码规范。
 --------
 
 在视图文件(.ctp files)中，开发人员使用关键词控制结构。关键词控制结构在复杂的视图
-文件中更容易阅读。控制结构可以放在一段大的 PHP 代码段落中，也可以放在单独的 PHP 
+文件中更容易阅读。控制结构可以放在一段大的 PHP 代码段落中，也可以放在单独的 PHP
 标签中::
 
     <?php
@@ -131,6 +153,7 @@ CakePHP 开发人员将使用下面的编码规范。
         <p>You are the admin user.</p>
     <?php endif; ?>
 
+我们允许 .ctp 文件结尾的 PHP 结束标签（``?>``）。
 
 比较
 ==========
@@ -245,7 +268,7 @@ CakePHP 开发人员将使用下面的编码规范。
 
     <?php
     /**
-    * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+    * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
     * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
     *
     * Licensed under The MIT License
@@ -253,17 +276,17 @@ CakePHP 开发人员将使用下面的编码规范。
     * Redistributions of files must retain the above copyright notice.
     *
     * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
-    * @link          http://cakephp.org CakePHP(tm) Project
+    * @link          https://cakephp.org CakePHP(tm) Project
     * @since         X.Y.Z
     * @license       http://www.opensource.org/licenses/mit-license.php MIT License
     */
 
-包含的 `phpDocumentor <http://phpdoc.org>`_ 标签为：
+包含的 `phpDocumentor <https://phpdoc.org>`_ 标签为：
 
-*  `@copyright <http://phpdoc.org/docs/latest/references/phpdoc/tags/copyright.html>`_
-*  `@link <http://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
-*  `@since <http://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
-*  `@license <http://phpdoc.org/docs/latest/references/phpdoc/tags/license.html>`_
+*  `@copyright <https://phpdoc.org/docs/latest/references/phpdoc/tags/copyright.html>`_
+*  `@link <https://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
+*  `@since <https://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
+*  `@license <https://phpdoc.org/docs/latest/references/phpdoc/tags/license.html>`_
 
 类文档代码块
 ------------
@@ -278,23 +301,23 @@ CakePHP 开发人员将使用下面的编码规范。
      *
      * @deprecated 3.0.0 在 2.6.0 版本中作废。将在 3.0.0 版本中移除。使用 Bar 代替。
      * @see Bar
-     * @link http://book.cakephp.org/2.0/en/foo.html
+     * @link https://book.cakephp.org/2.0/en/foo.html
      */
     class Foo {
 
     }
 
-类文档代码块可以包含如下 `phpDocumentor <http://phpdoc.org>`_ 标签：
+类文档代码块可以包含如下 `phpDocumentor <https://phpdoc.org>`_ 标签：
 
-*  `@deprecated <http://phpdoc.org/docs/latest/references/phpdoc/tags/deprecated.html>`_
-   使用 ``@version <vector> <description>`` 格式，其中 ``version`` 和 
+*  `@deprecated <https://phpdoc.org/docs/latest/references/phpdoc/tags/deprecated.html>`_
+   使用 ``@version <vector> <description>`` 格式，其中 ``version`` 和
    ``description`` 是必须的。
-*  `@internal <http://phpdoc.org/docs/latest/references/phpdoc/tags/internal.html>`_
-*  `@link <http://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
-*  `@property <http://phpdoc.org/docs/latest/references/phpdoc/tags/property.html>`_
-*  `@see <http://phpdoc.org/docs/latest/references/phpdoc/tags/see.html>`_
-*  `@since <http://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
-*  `@uses <http://phpdoc.org/docs/latest/references/phpdoc/tags/uses.html>`_
+*  `@internal <https://phpdoc.org/docs/latest/references/phpdoc/tags/internal.html>`_
+*  `@link <https://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
+*  `@property <https://phpdoc.org/docs/latest/references/phpdoc/tags/property.html>`_
+*  `@see <https://phpdoc.org/docs/latest/references/phpdoc/tags/see.html>`_
+*  `@since <https://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
+*  `@uses <https://phpdoc.org/docs/latest/references/phpdoc/tags/uses.html>`_
 
 属性文档代码块
 --------------
@@ -306,20 +329,20 @@ CakePHP 开发人员将使用下面的编码规范。
      *
      * @deprecated 3.0.0 在 2.5.0 版本中作废。将在 3.0.0 版本中移除。使用 $_bla 代替。
      * @see Bar::$_bla
-     * @link http://book.cakephp.org/2.0/en/foo.html#properties
+     * @link https://book.cakephp.org/2.0/en/foo.html#properties
      */
     protected $_bar = null;
 
-属性文档代码块可以包含如下 `phpDocumentor <http://phpdoc.org>`_ 标签：
+属性文档代码块可以包含如下 `phpDocumentor <https://phpdoc.org>`_ 标签：
 
-*  `@deprecated <http://phpdoc.org/docs/latest/references/phpdoc/tags/deprecated.html>`_
-   使用 ``@version <vector> <description>`` 格式，其中 ``version`` 和 
+*  `@deprecated <https://phpdoc.org/docs/latest/references/phpdoc/tags/deprecated.html>`_
+   使用 ``@version <vector> <description>`` 格式，其中 ``version`` 和
    ``description`` 是必须的。
-*  `@internal <http://phpdoc.org/docs/latest/references/phpdoc/tags/internal.html>`_
-*  `@link <http://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
-*  `@see <http://phpdoc.org/docs/latest/references/phpdoc/tags/see.html>`_
-*  `@since <http://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
-*  `@var <http://phpdoc.org/docs/latest/references/phpdoc/tags/var.html>`_
+*  `@internal <https://phpdoc.org/docs/latest/references/phpdoc/tags/internal.html>`_
+*  `@link <https://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
+*  `@see <https://phpdoc.org/docs/latest/references/phpdoc/tags/see.html>`_
+*  `@since <https://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
+*  `@var <https://phpdoc.org/docs/latest/references/phpdoc/tags/var.html>`_
 
 方法/函数文档代码块
 -------------------
@@ -337,26 +360,26 @@ CakePHP 开发人员将使用下面的编码规范。
      * @return array cakes 数组。
      * @throws Exception 如果出错。
      *
-     * @link http://book.cakephp.org/2.0/en/foo.html#bar
+     * @link https://book.cakephp.org/2.0/en/foo.html#bar
      * @deprecated 3.0.0 在 2.5.0 版本中作废。将在 3.0.0 版本中移除。使用 Bar::baz 代替。
      * @see Bar::baz
      */
      public function bar($param1, $param2 = null) {
      }
 
-方法和函数文档代码块可以包含如下 `phpDocumentor <http://phpdoc.org>`_ 标签：
+方法和函数文档代码块可以包含如下 `phpDocumentor <https://phpdoc.org>`_ 标签：
 
-*  `@deprecated <http://phpdoc.org/docs/latest/references/phpdoc/tags/deprecated.html>`_
-   使用 ``@version <vector> <description>`` 格式，其中 ``version`` 和 
+*  `@deprecated <https://phpdoc.org/docs/latest/references/phpdoc/tags/deprecated.html>`_
+   使用 ``@version <vector> <description>`` 格式，其中 ``version`` 和
    ``description`` 是必须的。
-*  `@internal <http://phpdoc.org/docs/latest/references/phpdoc/tags/internal.html>`_
-*  `@link <http://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
-*  `@param <http://phpdoc.org/docs/latest/references/phpdoc/tags/param.html>`_
-*  `@return <http://phpdoc.org/docs/latest/references/phpdoc/tags/return.html>`_
-*  `@throws <http://phpdoc.org/docs/latest/references/phpdoc/tags/throws.html>`_
-*  `@see <http://phpdoc.org/docs/latest/references/phpdoc/tags/see.html>`_
-*  `@since <http://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
-*  `@uses <http://phpdoc.org/docs/latest/references/phpdoc/tags/uses.html>`_
+*  `@internal <https://phpdoc.org/docs/latest/references/phpdoc/tags/internal.html>`_
+*  `@link <https://phpdoc.org/docs/latest/references/phpdoc/tags/link.html>`_
+*  `@param <https://phpdoc.org/docs/latest/references/phpdoc/tags/param.html>`_
+*  `@return <https://phpdoc.org/docs/latest/references/phpdoc/tags/return.html>`_
+*  `@throws <https://phpdoc.org/docs/latest/references/phpdoc/tags/throws.html>`_
+*  `@see <https://phpdoc.org/docs/latest/references/phpdoc/tags/see.html>`_
+*  `@since <https://phpdoc.org/docs/latest/references/phpdoc/tags/since.html>`_
+*  `@uses <https://phpdoc.org/docs/latest/references/phpdoc/tags/uses.html>`_
 
 变量类型
 --------
@@ -417,7 +440,7 @@ callable
     require_once $class;
 
 当包括类或者库的文件时, 总是只使用
-`require\_once <http://php.net/require_once>`_ 函数。
+`require\_once <https://secure.php.net/require_once>`_ 函数。
 
 PHP 标签
 ========

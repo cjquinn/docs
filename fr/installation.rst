@@ -12,8 +12,11 @@ Conditions requises
 
 -  HTTP Server. Par exemple: Apache. mod\_rewrite est préférable, mais en
    aucun cas nécessaire.
--  PHP 5.3.0 ou plus (CakePHP version 2.6 et les versions inférieures supportent
-   PHP 5.2.8 ou plus)..
+- PHP 5.3.0 ou supérieur (La version 2.6 de CakePHP et les versions inférieures
+  supportent PHP 5.2.8 et supérieur). La version 2.8.0 de CakePHP et les
+  versions supérieures supportent PHP 7. Pour utiliser une version PHP
+  supérieure à 7.1, vous aurez sans doute besoin d'installer mcrypt avec PECL.
+  Consultez :doc:`/core-utility-libraries/security` pour plus d'informations.
 
 Techniquement, un moteur de base de données n'est pas nécessaire, mais nous
 imaginons que la plupart des applications vont en utiliser un. CakePHP supporte
@@ -45,11 +48,11 @@ télécharger une copie archivée de (zip/tar.gz/tar.bz2) à partir du site web
 principal, soit faire un check out du code sur dépôt de git.
 
 Pour télécharger la dernière version majeure de CakePHP, visitez le site web
-principal `http://cakephp.org <http://cakephp.org>`_ et suivez le lien
+principal `https://cakephp.org <https://cakephp.org>`_ et suivez le lien
 "Télécharger maintenant".
 
 Toutes les versions actuelles de CakePHP sont hébergées sur
-`Github <http://github.com/cakephp/cakephp>`_. Github héberge CakePHP lui-même
+`Github <https://github.com/cakephp/cakephp>`_. Github héberge CakePHP lui-même
 ainsi que plusieurs autres plugins pour CakePHP. Les versions de CakePHP sont
 disponibles sur `Téléchargements Github <https://github.com/cakephp/cakephp/tags>`_.
 

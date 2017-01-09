@@ -485,8 +485,8 @@ set. The first one is using the ``add`` method::
         'required' => 'create'
     ));
 
-This will add a single rule to the `password` field in the model. You can chain
-multiple calls to add to create as many rules as you like::
+This will add a single rule to the ``password`` field in the model. You can
+chain multiple calls to add to create as many rules as you like::
 
     // Inside a model class
     $this->validator()
@@ -629,15 +629,14 @@ with usage examples.
 
         public $validate = array(
             'password' => array(
-                'rule'    => array('lengthBetween', 5, 15),
+                'rule' => array('lengthBetween', 5, 15),
                 'message' => 'Passwords must be between 5 and 15 characters long.'
             )
         );
 
-    The length of data is "the number of bytes in the string
-    representation of the data". Be careful that it may be larger than
-    the number of characters when handling non-ASCII characters.
-
+    The data is checked by number of characters, not number of bytes.
+    If you want to validate against pure ASCII input instead of UTF-8 compatible, 
+    you will have to write your own custom validators.
 
 .. php:staticmethod:: blank(mixed $check)
 
@@ -696,7 +695,7 @@ with usage examples.
     The 'deep' key should be set to a boolean value. If it is set to
     true, the validation will check the Luhn algorithm of the credit
     card
-    (`http://en.wikipedia.org/wiki/Luhn\_algorithm <http://en.wikipedia.org/wiki/Luhn_algorithm>`_).
+    (`https://en.wikipedia.org/wiki/Luhn\_algorithm <https://en.wikipedia.org/wiki/Luhn_algorithm>`_).
     It defaults to false.
 
     The 'regex' key allows you to supply your own regular expression
@@ -968,16 +967,14 @@ with usage examples.
 .. php:staticmethod:: luhn(string|array $check, boolean $deep = false)
 
     The Luhn algorithm: A checksum formula to validate a variety of
-    identification numbers. See http://en.wikipedia.org/wiki/Luhn_algorithm for
+    identification numbers. See https://en.wikipedia.org/wiki/Luhn_algorithm for
     more information.
 
 
 .. php:staticmethod:: maxLength(string $check, integer $max)
 
     This rule ensures that the data stays within a maximum length
-    requirement.
-
-    ::
+    requirement::
 
         public $validate = array(
             'login' => array(
@@ -986,9 +983,8 @@ with usage examples.
             )
         );
 
-    The length here is "the number of bytes in the string
-    representation of the data". Be careful that it may be larger than
-    the number of characters when handling non-ASCII characters.
+    This will ensure that the 'login' field is less than or equal to 15
+    characters, not 15 bytes.
 
 .. php:staticmethod:: mimeType(mixed $check, array|string $mimeTypes)
 
@@ -1016,9 +1012,7 @@ with usage examples.
 .. php:staticmethod:: minLength(string $check, integer $min)
 
     This rule ensures that the data meets a minimum length
-    requirement.
-
-    ::
+    requirement::
 
         public $validate = array(
             'login' => array(
@@ -1027,10 +1021,9 @@ with usage examples.
             )
         );
 
-    The length here is "the number of bytes in the string
-    representation of the data". Be careful that it may be larger than
-    the number of characters when handling non-ASCII characters.
-
+    The length here is number of characters, not the number of bytes.
+    If you want to validate against pure ASCII input instead of UTF-8 compatible, 
+    you will have to write your own custom validators.
 
 .. php:staticmethod:: money(string $check, string $symbolPosition = 'left')
 

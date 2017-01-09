@@ -180,7 +180,7 @@ create() には多くのオプションがあります:
   もしくは、外部ドメインも指定可能です::
 
     echo $this->Form->create(false, array(
-        'url' => 'http://www.google.com/search',
+        'url' => 'https://www.google.com/search',
         'type' => 'get'
     ));
 
@@ -188,7 +188,7 @@ create() には多くのオプションがあります:
 
   .. code-block:: html
 
-    <form method="get" action="http://www.google.com/search">
+    <form method="get" action="https://www.google.com/search">
 
   さらにいろいろなタイプの URL を指定する例は、:php:meth:`HtmlHelper::url()`
   メソッドを参照してみてください。
@@ -277,7 +277,7 @@ create() には多くのオプションがあります:
         </div>
 
     詳細は
-    `Form Helper API <http://api.cakephp.org/2.8/class-FormHelper.html>`_
+    `Form Helper API <https://api.cakephp.org/2.8/class-FormHelper.html>`_
     を参照してください。
 
     .. note::
@@ -398,7 +398,7 @@ FormHelper でフォームの input 要素を作る方法はいくつかあり�
     そしてビューの中では、以下のシンプルなコードで複数の select が
     生成できます::
 
-        echo $this->Form->input('Group');
+        echo $this->Form->input('Group', array('multiple' => true));
 
     belongsTo や hasOne 関係を使うケースで select 項目を生成したい場合、
     Users コントローラーに以下のコードを追加します（User は Group に
@@ -893,16 +893,17 @@ select, checkbox, radio に関するオプション
     パスワードフィールドのデフォルト値を空値にしたい場合は、
     'value' => '' の方を使ってください。
 
-    date や datetime フィールドのために、 empty にキー・バリューペアの配列を指定できます。 ::
+  date や datetime フィールドのために、 empty にキー・バリューペアの配列を指定できます。 ::
 
-        echo $this->Form->dateTime('Contact.date', 'DMY', '12',
-	        array(
-	            'empty' => array(
-                    'day' => 'DAY', 'month' => 'MONTH', 'year' => 'YEAR',
-                    'hour' => 'HOUR', 'minute' => 'MINUTE', 'meridian' => false
-                )
+
+    echo $this->Form->dateTime('Contact.date', 'DMY', '12',
+        array(
+            'empty' => array(
+                'day' => 'DAY', 'month' => 'MONTH', 'year' => 'YEAR',
+                'hour' => 'HOUR', 'minute' => 'MINUTE', 'meridian' => false
             )
-        );
+        )
+    );
 
   出力結果:
 
@@ -1495,7 +1496,7 @@ select, checkbox, radio に関するオプション
     この配列は PHP 自体によって生成されます。PHP が file フィールドを
     通してデータをどう処理しているのかについては、PHP マニュアルの
     ファイルアップロードのセクション
-    `<http://php.net/features.file-upload>`_ を読んでみてください。
+    `<https://secure.php.net/features.file-upload>`_ を読んでみてください。
 
 アップロードの検証
 ------------------
@@ -1614,7 +1615,7 @@ file タイプの入力フィールドを生成::
     ブラウザで JavaScript を有効にする場合はこれが必要です。
 
     このメソッドは ``<form>`` 要素を作成します。もし、このメソッドを、既存のフォームの中で
-    使用したい場合、 新しいフォームがそのフォームの外に作成されるようにするために ``inline``
+    使用したい場合、 新しいフォームが既存のフォームの外に作成されるようにするために ``inline``
     や ``block`` オプションを使用しなければなりません。
 
     もし、あなたのフォームを投稿するボタンを探しているなら、代わりに
@@ -1844,14 +1845,14 @@ FormHelper のいくつかのメソッドから ``$selected`` パラメータが
 ``$selected`` が生成する重複を減らします。影響を受けるメソッドは
 以下の通りです:
 
-    * FormHelper::select()
-    * FormHelper::dateTime()
-    * FormHelper::year()
-    * FormHelper::month()
-    * FormHelper::day()
-    * FormHelper::hour()
-    * FormHelper::minute()
-    * FormHelper::meridian()
+* FormHelper::select()
+* FormHelper::dateTime()
+* FormHelper::year()
+* FormHelper::month()
+* FormHelper::day()
+* FormHelper::hour()
+* FormHelper::minute()
+* FormHelper::meridian()
 
 **フォーム上のデフォルトの URL は、現在のアクションです**
 

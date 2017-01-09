@@ -4,8 +4,8 @@ XML
 .. php:class:: Xml
 
 Xml クラスはすべてリファクタリングされました。 PHP 5 には
-`SimpleXML <http://php.net/simplexml>`_ と
-`DOMDocument <http://php.net/domdocument>`_ があり、
+`SimpleXML <https://secure.php.net/simplexml>`_ と
+`DOMDocument <https://secure.php.net/domdocument>`_ があり、
 CakePHP で XML パーサーを再実装する必要がないからです。
 新しい Xml クラスは配列から SimpleXMLElement や DOMDocument
 または逆方向への基本的な変換を行います。
@@ -21,22 +21,22 @@ Xml オブジェクトが返るまでの間、 SimpleXMLElement または DOMDoc
 既定では SimpleEMLElement を返します。以下のサンプルは URL から
 データをインポートする方法を示しています。 ::
 
-    //はじめにユーティリティクラスをロードします。
+    // はじめにユーティリティクラスをロードします。
     App::uses('Xml', 'Utility');
 
     // 今までの方法:
-    $xml = new Xml('http://bakery.cakephp.org/articles.rss');
+    $xml = new Xml('https://bakery.cakephp.org/articles.rss');
 
     // SimpleXML を使った新しい方法:
-    $xml = Xml::build('http://bakery.cakephp.org/articles.rss');
+    $xml = Xml::build('https://bakery.cakephp.org/articles.rss');
     // このとき、 $xml は SimpleXMLElement のインスタンスです。
 
     // もしくは
-    $xml = Xml::build('http://bakery.cakephp.org/articles.rss', array('return' => 'simplexml'));
+    $xml = Xml::build('https://bakery.cakephp.org/articles.rss', array('return' => 'simplexml'));
     // このときも、 $xml は SimpleXMLElement のインスタンスです。
 
     // DOMDocument を使った新しい方法:
-    $xml = Xml::build('http://bakery.cakephp.org/articles.rss', array('return' => 'domdocument'));
+    $xml = Xml::build('https://bakery.cakephp.org/articles.rss', array('return' => 'domdocument'));
     // このとき、 $xml は DOMDocument のインスタンスです。
 
 :php:meth:`Xml::build()` を使うことで、多様なソースから XML オブジェクトを
@@ -50,14 +50,14 @@ Xml オブジェクトが返るまでの間、 SimpleXMLElement または DOMDoc
     </post>';
     $xml = Xml::build($text);
 
-ローカルやリモートにあるファイルからも Xml オブジェクトを作成することができます。
+ローカルやリモートにあるファイルからも XML オブジェクトを作成することができます。
 リモートのファイルは :php:class:`HttpSocket` を使って取得します。 ::
 
     // ローカルにあるファイル
     $xml = Xml::build('/home/awesome/unicorns.xml');
 
     // リモートにあるファイル
-    $xml = Xml::build('http://bakery.cakephp.org/articles.rss');
+    $xml = Xml::build('https://bakery.cakephp.org/articles.rss');
 
 配列を使っても Xml オブジェクトを作成できます。 ::
 
@@ -81,8 +81,8 @@ Xml オブジェクトが返るまでの間、 SimpleXMLElement または DOMDoc
 
 .. note::
 
-    `DOMDocument <http://php.net/domdocument>`_ と
-    `SimpleXML <http://php.net/simplexml>`_ は異なる API を実装しています。
+    `DOMDocument <https://secure.php.net/domdocument>`_ と
+    `SimpleXML <https://secure.php.net/simplexml>`_ は異なる API を実装しています。
     必ずXmlから要求されたオブジェクトの正しいメソッドを使用してください。
 
 XML 文字列から配列への変換
@@ -222,13 +222,14 @@ Xml クラスは例外をスローします。以下は正しくない例です�
 名前空間の使用
 --------------
 
-配列で XML 名前空間を定義するには、デフォルト名前空間は ``xmlns:`` という名前のキー、
-カスタム名前空間は ``xmlns:`` から始まる名前のキーを用いた要素を作成します。
+配列で XML 名前空間を定義するには、デフォルトの名前空間のために
+``xmlns:`` という名前のキーを作成するか、カスタム名前空間の前に
+``xmlns:`` をつけた名前のキーを作成する必要があります。
 以下の例を見てください。 ::
 
     $xmlArray = array(
         'root' => array(
-            'xmlns:' => 'http://cakephp.org',
+            'xmlns:' => 'https://cakephp.org',
             'child' => 'value'
         )
     );
@@ -237,7 +238,7 @@ Xml クラスは例外をスローします。以下は正しくない例です�
     $xmlArray(
         'root' => array(
             'tag' => array(
-                'xmlns:pref' => 'http://cakephp.org',
+                'xmlns:pref' => 'https://cakephp.org',
                 'pref:item' => array(
                     'item 1',
                     'item 2'
@@ -250,19 +251,19 @@ Xml クラスは例外をスローします。以下は正しくない例です�
 ``$xml1`` と ``$xml2`` の値は、それぞれ次のようになるでしょう。 ::
 
     <?xml version="1.0"?>
-    <root xmlns="http://cakephp.org"><child>value</child>
+    <root xmlns="https://cakephp.org"><child>value</child>
 
 
     <?xml version="1.0"?>
-    <root><tag xmlns:pref="http://cakephp.org"><pref:item>item 1</pref:item><pref:item>item 2</pref:item></tag></root>
+    <root><tag xmlns:pref="https://cakephp.org"><pref:item>item 1</pref:item><pref:item>item 2</pref:item></tag></root>
 
 子要素の作成
 ------------
 
 CakePHP 2.0 の Xml クラスはコンテンツの操作をするメソッドを提供しません。
 これらの操作は SimpleXMLElement または DOMDocument を使ってしなければなりません。
-しかし CakePHP は非常に親切な作りになっています。
-以下のように、子ノードを作成するためにはいくつか段階を踏みます。 ::
+CakePHP はそれをカバーしてくれます。以下のように、CakePHP で子要素を作成するためには
+いくつか段階を踏みます。 ::
 
     // CakePHP 1.3
     $myXmlOriginal = '<?xml version="1.0"?><root><child>value</child></root>';

@@ -3,9 +3,14 @@ Security
 
 .. php:class:: Security
 
-The `security library <http://api.cakephp.org/2.8/class-Security.html>`_
+The `security library <https://api.cakephp.org/2.8/class-Security.html>`_
 handles basic security measures such as providing methods for
 hashing and encrypting data.
+
+.. warning::
+    The encryption features offered by Security rely on the deprecated
+    ``mcrypt`` extension. If you are using PHP>=7.1 you will need to install
+    ``mcrypt`` via PECL.
 
 Security API
 ============
@@ -35,7 +40,7 @@ Security API
     :param string $mode: The mode to use, either 'encrypt' or 'decrypt'
 
     Encrypts/Decrypts text using the rijndael-256 cipher. This requires the
-    `mcrypt extension <http://php.net/mcrypt>`_ to be installed::
+    `mcrypt extension <https://secure.php.net/mcrypt>`_ to be installed::
 
         // Encrypt some data.
         $encrypted = Security::rijndael('a secret', Configure::read('Security.key'), 'encrypt');
@@ -96,18 +101,6 @@ Security API
 
     .. versionadded:: 2.5
 
-.. php:staticmethod:: generateAuthKey( )
-
-    :rtype: string
-
-    Generate authorization hash.
-
-.. php:staticmethod:: getInstance( )
-
-    :rtype: object
-
-    Singleton implementation to get object instance.
-
 .. php:staticmethod:: hash( $string, $type = NULL, $salt = false )
 
     :rtype: string
@@ -153,17 +146,6 @@ Security API
 
     Sets the default hash method for the Security object. This
     affects all objects using Security::hash().
-
-.. php:staticmethod:: validateAuthKey( $authKey )
-
-    :rtype: boolean
-
-    Validate authorization hash.
-
-.. todo::
-
-    Add more examples :|
-
 
 .. meta::
     :title lang=en: Security

@@ -193,7 +193,7 @@ Il y plusieurs options pour create():
     ou pointer vers un domaine extérieur::
 
         echo $this->Form->create(false, array(
-            'url' => 'http://www.google.com/search',
+            'url' => 'https://www.google.com/search',
             'type' => 'get'
         ));
 
@@ -201,7 +201,7 @@ Il y plusieurs options pour create():
 
     .. code-block:: html
 
-        <form method="get" action="http://www.google.com/search">
+        <form method="get" action="https://www.google.com/search">
 
     Regardez aussi la méthode :php:meth:`HtmlHelper::url()` pour plus
     d'exemples sur les différents types d'URLs.
@@ -292,7 +292,7 @@ Fermer le Formulaire
         <div class="glass-pill"><input type="submit" value="Update!" name="Update"></div>
 
     Voir `l'API du Helper Form
-    <http://api.cakephp.org/2.4/class-FormHelper.html>`_ pour plus de détails.
+    <https://api.cakephp.org/2.4/class-FormHelper.html>`_ pour plus de détails.
 
     .. note::
 
@@ -412,7 +412,7 @@ ce champ. En interne ``input()`` délègue aux autre méthode du FormHelper.
 
     Et dans la vue une sélection multiple peut être crée avec ce simple code::
 
-        echo $this->Form->input('Group');
+        echo $this->Form->input('Group', array('multiple' => true));
 
     Si vous voulez un champ de sélection utilisant une relation belongsTo
     ou hasOne, vous pouvez ajouter ceci dans votre controller Users
@@ -908,17 +908,17 @@ Les options pour  select, checkbox et inputs radio
     Si vous avez besoin de définir la valeur par défaut d'un champ password à
     vide, utilisez 'value'=> '' (deux fois simple cote) à la place.
 
-    Une liste de paire de clé-valeur peut être fournie pour un champ de type
-    date ou datetime::
+  Une liste de paire de clé-valeur peut être fournie pour un champ de type
+  date ou datetime::
 
-        echo $this->Form->dateTime('Contact.date', 'DMY', '12',
-	        array(
-	            'empty' => array(
-                    'day' => 'DAY', 'month' => 'MONTH', 'year' => 'YEAR',
-                    'hour' => 'HOUR', 'minute' => 'MINUTE', 'meridian' => false
-                )
+    echo $this->Form->dateTime('Contact.date', 'DMY', '12',
+        array(
+            'empty' => array(
+                'day' => 'DAY', 'month' => 'MONTH', 'year' => 'YEAR',
+                'hour' => 'HOUR', 'minute' => 'MINUTE', 'meridian' => false
             )
-        );
+        )
+    );
 
   Affiche:
 
@@ -1497,7 +1497,7 @@ Ex: name=data[User][username], id=UserUsername
     sur la façon dont PHP gère les données passées a travers
     les champs ``files``.
     `lire la section file uploads du manuel de PHP
-    <http://php.net/features.file-upload>`_.
+    <https://secure.php.net/features.file-upload>`_.
 
 Validation des Uploads
 ----------------------
@@ -1849,14 +1849,14 @@ les méthodes du Helper Form, en réduisant le nombre d'arguments,
 et réduit les duplications que ``$selected`` crée.
 Les méthodes sont:
 
-    * FormHelper::select()
-    * FormHelper::dateTime()
-    * FormHelper::year()
-    * FormHelper::month()
-    * FormHelper::day()
-    * FormHelper::hour()
-    * FormHelper::minute()
-    * FormHelper::meridian()
+* FormHelper::select()
+* FormHelper::dateTime()
+* FormHelper::year()
+* FormHelper::month()
+* FormHelper::day()
+* FormHelper::hour()
+* FormHelper::minute()
+* FormHelper::meridian()
 
 **L'URL par défaut des formulaires est l'action courante**
 
